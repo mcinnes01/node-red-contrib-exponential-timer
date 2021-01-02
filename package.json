@@ -1,0 +1,23 @@
+{
+  "name": "node-red-contrib-exponential-timer",
+  "version": "2021.1.0",
+  "description": "An exponential timer for node-red",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcinnes01/node-red-contrib-exponential-timer.git"
+  },
+  "author": "mcinnes01",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mcinnes01/node-red-contrib-exponential-timer/issues"
+  },
+  "homepage": "https://github.com/mcinnes01/node-red-contrib-exponential-timer#readme",
+  "dependencies": {
+  },
+  "keywords": [ "node-red" ],
+  "node-red" : {
+    "nodes": {
+        "exponential-timer": "exponential-timer.js"
+    }
+  }
+}
