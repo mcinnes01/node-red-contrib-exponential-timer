@@ -2,14 +2,16 @@ module.exports = function(RED) {
     function ExponentialTimer(config) {
         RED.nodes.createNode(this,config);
         var node = this;
-        this.on('input', function(msg, send, done) {
+        var context = node.context();
+
+        node.on('input', function(msg, send, done) {
             let timeout = context.get("timer");
             let timeoutId = context.get("timeoutId");
             clearTimeout(timeoutId);
             
-            this.scalefactor = config.scalefactor;
-            this.duration = config.duration;
-            this.maxduration = config.maxduration;
+            node.scalefactor = config.scalefactor;
+            node.duration = config.duration;
+            node.maxduration = config.maxduration;
             
             if(msg.reset) {
                 context.set("timer",null);
@@ -18,9 +20,9 @@ module.exports = function(RED) {
             }
             
             if(timeout) {
-                timeout = Math.min(this.duration * this.scalefactor, this.maxduration);
+                timeout = Math.min(node.duration * node.scalefactor, node.maxduration);
             } else {
-                timeout = this.duration;
+                timeout = node.duration;
             }
             
             timeoutId = setTimeout(() => {
